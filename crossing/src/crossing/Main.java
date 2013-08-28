@@ -23,22 +23,6 @@ public class Main {
 		for (int i = 0; i < listInt.length; i++) {
 			listInt[i] = Integer.valueOf(listStr[i]);
 		}
-		// long count = 0;
-		// for (int index = 0; index < listInt.length; index++) {
-		// int target = listInt[index];
-		// for (int i = index + 1; i < listInt.length; i++) {
-		// int compared = listInt[i];
-		// if (target > compared) {
-		// count++;
-		// }
-		// }
-		// for (int i = 0; i < index; i++) {
-		// int compared = listInt[i];
-		// if (target < compared) {
-		// count++;
-		// }
-		// }
-		// }
 		ForkJoinPool pool = new ForkJoinPool();
 		long count = pool.invoke(new Task(listInt, 0, listInt.length));
 		System.out.println(count);
