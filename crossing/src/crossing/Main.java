@@ -16,7 +16,7 @@ public class Main {
 	 */
 	public static void main(String[] args) throws IOException {
 		long startTime = System.currentTimeMillis();
-		Path path = Paths.get("Copy of sample.txt");
+		Path path = Paths.get("sample.txt");
 		List<String> lists = Files.readAllLines(path, Charset.defaultCharset());
 		String[] listStr = (String[]) lists.toArray(new String[lists.size()]);
 		int[] listInt = new int[listStr.length];
@@ -41,7 +41,7 @@ public class Main {
 		// }
 		ForkJoinPool pool = new ForkJoinPool();
 		long count = pool.invoke(new Task(listInt, 0, listInt.length));
-		System.out.println(count / 2);
+		System.out.println(count);
 		System.out.println(System.currentTimeMillis() - startTime);
 	}
 }

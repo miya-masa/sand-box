@@ -6,8 +6,8 @@ import java.util.concurrent.RecursiveTask;
 
 public class Task extends RecursiveTask<Long> {
 
-	private static final int THRESHOLD = 128;
-	// private static final int THRESHOLD = 2;
+	// private static final int THRESHOLD = 128;
+	private static final int THRESHOLD = 4;
 
 	private int[] listInt;
 
@@ -29,12 +29,6 @@ public class Task extends RecursiveTask<Long> {
 				for (int i = index + 1; i < listInt.length; i++) {
 					int compared = listInt[i];
 					if (target > compared) {
-						count++;
-					}
-				}
-				for (int i = 0; i < index; i++) {
-					int compared = listInt[i];
-					if (target < compared) {
 						count++;
 					}
 				}
