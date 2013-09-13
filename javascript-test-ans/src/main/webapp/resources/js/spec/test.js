@@ -100,7 +100,7 @@ describe('Jasmineのassert機能の内,', function() {
 		expect(0).not.toBeTruthy();
 		expect({}).toBeTruthy();
 	});
-	it('toBeClose()は指定した小数点以下を丸めた状態で数値を比較する', function() {
+	it('toBeClose()は指定した小数点以下を丸めた状態で数値を比較する。', function() {
 		// 小数第二位で比較(小数第三位を四捨五入)1.23と1.23
 		expect(1.234567).toBeCloseTo(1.23123, 2);
 		// 小数第三位で比較(小数第四位を四捨五入)1.234と1.231
@@ -134,25 +134,43 @@ describe('jasmin-jqueryを使って、', function() {
 	var $target = null;
 
 	beforeEach(function() {
-		setFixtures('<div id="loaded-fixture">Hello World!!</div>');
+		// setFixtures('<div id="loaded-fixture">Hello World!!</div>');
+		setFixtures(sandbox({
+			id : "loaded-fixture"
+		}).text('Hello World!!'));
+		appendSetFixtures($('<ul id = append>'));
 		$target = $('#loaded-fixture');
+		sample.contoller.init();
 	});
-	it('DOMを取得する', function() {
+	it('DOMを取得する。', function() {
 		expect($target).toBe('div');
 		expect($target).toHaveId('loaded-fixture');
 		expect($target).toHaveText('Hello World!!');
 	});
 
-	it('DOMを追加する', function() {
+	it('DOMを追加する。', function() {
 		$('<div id="inner">').css('background-color', 'red').text('I am inner!!').appendTo($target);
 		var $inner = $target.find('#inner');
 		expect($inner).toBe('div');
 		expect($inner).toHaveCssCustom({
 			'background-color' : 'red'
 		});
-		expect($('<div id="inner">').css('background-color', 'red')).toHaveCssCustom({
-			'background-color' : 'red'
-		});
+	});
+
+	it('イベントを発火する。', function() {
+		spyOn(console, 'log');
+		$target.click();
+		expect(console.log).toHaveBeenCalledWith('Clicked');
+	});
+
+	it('イベントを発火し、追加されたDOM要素を確認する。', function() {
+		var $append = $('#append');
+		$append.click();
+		expect($append.children().length).toBe(1);
+		expect($append.children(':eq(0)').text()).toBe("appended");
+		$append.click();
+		expect($append.children().length).toBe(2);
+		expect($append.children(':eq(1)').text()).toBe("appended");
 	});
 });
 beforeEach(function() {
