@@ -1,9 +1,9 @@
 describe("Jasmineのassert機能の内,", function() {
-	// TODO
+	// TODO 【ハンズオン1 Assert機能】
 });
 
 describe("テスト前後をフックする関数、", function() {
-
+	// TODO 【ハンズオン2 beforeEachとafterEachの動作確認】
 	var foo = 0;
 	var bar = 0;
 
@@ -26,19 +26,14 @@ describe("テスト前後をフックする関数、", function() {
 // ここではsample.controllerを利用する
 describe('jasmin-jqueryを使って、', function() {
 
+	// 対象要素
 	var $target = null;
 
 	beforeEach(function() {
-		// TODO 以下のコードの前に、
-		// <div id="loaded-fixture">Hello World!!</div>
-		// をsetFixtures(html)を使ってDOMに追加。
-		// appendSetFixturesを使って<ul id = append>を追加する
-		// sample.controllerを初期化する
-		$target = $('#loaded-fixture');
+		// TODO 【ハンズオン3 DOMテスト】
 	});
 	it('DOMを取得する。', function() {
-		// TODO 以下に続けてloaded-fixtureがロードされたこと、loaded-fixtureのテキストがHello
-		// Worldであることを確認する
+		// TODO 【ハンズオン3 DOMテスト】
 		// ヒント toHaveId()、toHaveText()
 		expect($target).toBe('div');
 	});
@@ -54,12 +49,7 @@ describe('jasmin-jqueryを使って、', function() {
 	});
 
 	it('イベントを発火する。', function() {
-		// TODO
-		// テストはスパイ機能を利用してテストを行う
-		// console.logをスパイする
-		// loaded-fixtureのクリックイベントを発火
-		// console.logが引数'Clicked'で呼び出されたことを確認する。
-		//
+		// TODO 【ハンズオン３－２スパイテスト】
 		// ヒント toHaveBeenCalledWith(param)でスパイオブジェクトが
 		// 引数paramで呼び出したかどうかを検証する
 	});

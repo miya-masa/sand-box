@@ -39,6 +39,35 @@
 		
 ハンズオン３(5分)
 	DOM操作のテストとスパイ機能を確認してみよう
+	ハンズオン３－１ DOMテスト
+		【手順】
+			１．<div id="loaded-fixture">Hello World!!</div>をDOMに追加
+			２．さらに<ul id="append">を追加
+			３．id=loaded-fixtureを取得してテキストとIDを検証する
+				(toHaveId()とtoHaveText()を使う)
+		
+		【ヒント】
+			DOM設定ははsetFixtures(html);
+			setFixtures(html)後にhtmlを追加する場合は
+			appendSetFixtures(html)
+			追加要素が<div>の場合は
+			sandbox()を使うと簡単
+			sandbox({
+				id : "id"
+			})は<div id="id">と同義
+			とすると簡単。
+	ハンズオン３－２スパイテスト
+		【手順】
+			１．DOMをセットしたあとにsample-controllerを初期化
+			２．console.logをスパイ
+			３．loaded-fixtureのクリックイベントを発火
+			４．console.logが引数'Clicked'で呼び出されたことを確認する。
+			
+			ヒント
+				spyOn(obj,'関数名')でobjが保持する関数'関数名'をスパイオブジェクトに
+				変換できる。
+				jqueryオブジェクトに対して引数なしclick()とするとイベント発火
+				expect('スパイオブジェクト').toHaveBeenCalledWith('期待値')でスパイ
 
 ハンズオン４(10分)
 
