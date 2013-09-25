@@ -1,0 +1,1 @@
+for (var key in objects) {if (objects.hasOwnProperty(key)) {hey();}}for ( key in objects ) { }for (key in objects) {hey();}

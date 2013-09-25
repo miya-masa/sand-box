@@ -40,25 +40,37 @@
 ハンズオン３(15分)
 	DOM操作のテストとスパイ機能を確認してみよう
 	ハンズオン３－１ DOMテスト
-		【手順】
+		【実装:beforeeachと'DOMを取得する'】
 			１．<div id="loaded-fixture">Hello World!!</div>をDOMに追加
 			２．さらに<ul id="append">を追加
 			３．id=loaded-fixtureを取得してテキストとIDを検証する
 				(toHaveId()とtoHaveText()を使う)
-		
-		【ヒント】
-			DOM設定ははsetFixtures(html);
-			setFixtures(html)後にhtmlを追加する場合は
-			appendSetFixtures(html)
-			追加要素が<div>の場合は
-			sandbox()を使うと簡単
-			sandbox({
-				id : "id"
-			})は<div id="id">と同義
-			とすると簡単。
+				
+			【ヒント】
+				DOM設定ははsetFixtures(html);
+				setFixtures(html)後にhtmlを追加する場合は
+				appendSetFixtures(html)
+				追加要素が<div>の場合は
+				sandbox()を使うと簡単
+				sandbox({
+					id : "id"
+				})は<div id="id">と同義
+				とすると簡単。
+			
+		【実装:'イベントを発火して追加されたDOM要素を確認する。'】
+			１．DOMをセットしたあとにsample-controllerを初期化
+			２．id=append要素のクリックイベント発火
+			３．子要素が増えていることを確認
+			
+			【ヒント】
+				クリックイベント発火はjqueryオブジェクト.click()
+				子要素取得はjqueryオブジェクト.children('条件')
+				条件はjqueryのページから調べてみよう！
+				
+			
 	ハンズオン３－２スパイテスト
 		【手順】
-			１．DOMをセットしたあとにsample-controllerを初期化
+			１．DOMをセットしたあとにsample-controllerを初期化(恐らく実装済み)
 			２．console.logをスパイ
 			３．loaded-fixtureのクリックイベントを発火
 			４．console.logが引数'Clicked'で呼び出されたことを確認する。

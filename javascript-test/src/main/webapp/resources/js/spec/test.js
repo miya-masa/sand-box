@@ -37,7 +37,15 @@ describe('jasmin-jqueryを使って、', function() {
 		// ヒント toHaveId()、toHaveText()
 		expect($target).toBe('div');
 	});
+
+	it('イベントを発火して追加されたDOM要素を確認する。', function() {
+		// TODO 【ハンズオン3 DOMテスト】
+	});
+	it('イベントを発火する。', function() {
+		// TODO 【ハンズオン3 スパイテスト】
+	});
 	// デバッグの練習用。このテストが失敗する利用をデバッガを利用して調べてみよう！
+	// もしわかったらどうすれば良いか考えてみよう。
 	xit('DOMを追加する。', function() {
 		$('<div id="inner">').css('background-color', 'red').text(
 				'I am inner!!').appendTo($target);
@@ -48,20 +56,4 @@ describe('jasmin-jqueryを使って、', function() {
 		});
 	});
 
-	it('イベントを発火する。', function() {
-		// TODO 【ハンズオン３－２スパイテスト】
-		// ヒント toHaveBeenCalledWith(param)でスパイオブジェクトが
-		// 引数paramで呼び出したかどうかを検証する
-	});
-
-	it('イベントを発火して追加されたDOM要素を確認する。', function() {
-		// TODO
-		// #appendを取得しクリックイベントを発火
-		// 子要素の数が1になっていることを確認し、子要素のテキストが"appended"であることも確認する。
-		// 再度クリックイベントを発火し、子要素の数が2に増えてることを確認しテキストも確認する。
-		//
-		// ヒント:子要素のはjqueryオブジェクトに対してchildren('条件')で取得できる。
-		// 引数に条件を指定できるのだが、条件については調べてみよう！
-
-	});
 });
