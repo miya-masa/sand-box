@@ -26,18 +26,25 @@ describe("テスト前後をフックする関数、", function() {
 
 describe('jasmine、spy機能で、', function() {
 
+	/**
+	 * @type SpyTarget
+	 */
 	var spyTarget = null;
 
 	beforeEach(function() {
-		spyTarget = {
+		var SpyTarget = function() {
+			this.value = 0;
+		};
+		SpyTarget.prototype = {
 			value : 0,
 			setValue : function(value) {
-				spyTarget.value = value;
+				this.value = value;
 			},
 			getValue : function() {
-				return spyTarget.value;
+				return this.value;
 			}
 		};
+		spyTarget = new SpyTarget();
 	});
 	it('spyされたsetValueを実行し、toHaveBeenCalledWith()で呼び出しを確認する。', function() {
 		// TODO

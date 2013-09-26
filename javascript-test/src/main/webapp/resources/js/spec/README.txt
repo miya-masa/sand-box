@@ -50,7 +50,7 @@
 			JavaScriptの時計をスパイする方法
 				jasmine.Clock.useMock()で時計をモック化
 				setInterval(callback,millseconds);
-				jsmine.Clock.tick(milliseconds)で時計をmilliseconds分進める
+				jasmine.Clock.tick(milliseconds)で時計をmilliseconds分進める
 		
 ハンズオン４(15分)
 	DOM操作のテストとスパイ機能を確認してみよう
