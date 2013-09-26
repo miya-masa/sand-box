@@ -113,3 +113,47 @@
 		自分の名前を入れたら特別な文字列返すとか
 		時間によって返り値が変わるとか(spy機能を使おう！)
 		
+ハンズオン６(10分)
+	jenkinsで実行しjunit形式でレポート、カバレッジを取ろう！
+	【準備】
+		１．npm install karma-coverage --save-devでカバレッジモジュールを追加
+		２．npm install karma-junit-reporter --save-devでjunit集計モジュールを追加
+		３．karma.conf.jsを以下のように修正
+			//reportorsをprogress,junit,coverageに修正
+		    reporters: ['progress','junit','coverage'],
+		    //preprocessorsのcoverage対象をsrc以下のみに限定
+		    preprocessors: {
+		    	'resources/js/src/**/*.js': ['coverage']
+		      },
+		     //junit出力先を設定
+		    junitReporter:{
+		    	outputFile: "../../../target/junit/test-results.xml",
+		    },
+		    //coverage出力形式と出力先の設定
+		    coverageReporter: {
+		      type : 'cobertura',
+		      dir : '../../../target/coverage/',
+		      file : 'coverage.xml'
+		    },
+		    .......
+		    //singleRunをtrueに
+		     singleRun: true
+		４．java -jar jenkins.war httpPort=8181でjenkins起動
+		５．Jenkinsの管理 > プラグインの管理 > 利用可能からJekins Cobertura Pluginのインストール
+		６．新規ジョブの追加 -> ジョブ名javascript-test -> フリープロジェクト -> 次へ
+			プロジェクト名・・・javascript-test
+			プロジェクトの高度なオプション
+				カスタムワークスペーシの使用
+					ディレクトリ -> eclipseのワークスペースのパス
+					表示用プロジェクト名 -> javascript-test
+			ビルド手順の追加 -> Windowsバッチコマンドの実行
+				set CHROME_BIN=C:\Program Files\Google\Chrome\Application\chrome.exe
+				cd \javascript-test
+				.\javascript-test\node_modules\.bin\karma start
+				set CHROM_BIN
+			ビルド後の処理の追加 -> JUnitテスト結果の集計
+				テスト結果XML・・・**/target/junit/test-results.xml
+			ビルド後の処理の追加 -> Coberturaカバレッジ・レポートの集計
+				**/target/coverage/**/coverage.xml
+			保存
+		７．ビルド実行
