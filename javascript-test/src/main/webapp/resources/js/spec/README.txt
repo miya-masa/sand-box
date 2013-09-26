@@ -1,4 +1,4 @@
-ハンズオン１(15分)
+ハンズオン１(10分)
 	JasmineのAssert機能を確認してみよう！
 		【必須要件】
 			１．describe"jasmineのassert機能の内、"内の最低１つのitを完成させること
@@ -21,7 +21,7 @@
 			toBeFalsy()、toBeTruthy()・・・キャストした時にtrueになるかどうかを判定
 			toBeClose(expect,number)・・・数値をまるめて比較する。
 			
-ハンズオン２(7分)
+ハンズオン２(5分)
 	JasmineのbeforeEachとafterEachの動作を確認してみよう
 		【必須要件】
 			１．test.jsのdesription"テスト前後をフックする関数、"の中身を記述して、完成させること
@@ -36,11 +36,26 @@
 			beforeEachとafterEachが期待通りに動作する場合、
 			それぞれのテストでfooとbarはどんな値になるでしょう？
 			expectを利用して検証してみよう！
-		
+
 ハンズオン３(15分)
+	スパイ機能を確認してみよう！
+		【手順】
+			'jasmine、spy機能で、'内のitを完成させる。同describe内で共通スコープspyTarget
+			があるのでこのオブジェクトをスパイして実装を進める。
+			
+		【ヒント】
+			spyに対して
+			toHaveBeenCalledWith(param)...引数paramで呼び出されたかどうかを検証
+			spyOn().andCallFake(匿名関数)、spyOn().andCallThrough()
+			JavaScriptの時計をスパイする方法
+				jasmine.Clock.useMock()で時計をモック化
+				setInterval(callback,millseconds);
+				jsmine.Clock.tick(milliseconds)で時計をmilliseconds分進める
+		
+ハンズオン４(15分)
 	DOM操作のテストとスパイ機能を確認してみよう
-	ハンズオン３－１ DOMテスト
-		【実装:beforeeachと'DOMを取得する'】
+	ハンズオン４－１ DOMテスト
+		【実装:beforEeachと'DOMを取得する'の実装】
 			１．<div id="loaded-fixture">Hello World!!</div>をDOMに追加
 			２．さらに<ul id="append">を追加
 			３．id=loaded-fixtureを取得してテキストとIDを検証する
@@ -57,7 +72,7 @@
 				})は<div id="id">と同義
 				とすると簡単。
 			
-		【実装:'イベントを発火して追加されたDOM要素を確認する。'】
+		【実装:beforeEachと'イベントを発火して追加されたDOM要素を確認する。'の実装】
 			１．DOMをセットしたあとにsample-controllerを初期化
 			２．id=append要素のクリックイベント発火
 			３．子要素が増えていることを確認
@@ -68,7 +83,7 @@
 				条件はjqueryのページから調べてみよう！
 				
 			
-	ハンズオン３－２スパイテスト
+	ハンズオン４－２DOMとスパイテスト
 		【手順】
 			１．DOMをセットしたあとにsample-controllerを初期化(恐らく実装済み)
 			２．console.logをスパイ
@@ -81,4 +96,20 @@
 				jqueryオブジェクトに対して引数なしclick()とするとイベント発火
 				expect('スパイオブジェクト').toHaveBeenCalledWith('期待値')でスパイ
 
-ハンズオン５(10分)
+ハンズオン5(10分)
+	TDDを体験しよう！
+	【準備】
+		１．srcディレクトリ以下にhandson.jsを作成
+		２．specディレクトリ以下にtest-handson.jsを作成
+		３．karma起動
+	【手順】
+		１．名前を引数に”Hello {名前}!!”と返すコードを作成しよう！
+		２．オブジェクトでもプロトタイプでもどちらでもOK
+		３．関数名等も自由
+		４．TDDで開発するため、必ずtest-handson.jsから記述し、
+			失敗することを確認してからhandson.jsを作成すること！
+
+		終わったら、自分なりに工夫していろいろなテスト書いても良いです。
+		自分の名前を入れたら特別な文字列返すとか
+		時間によって返り値が変わるとか(spy機能を使おう！)
+		

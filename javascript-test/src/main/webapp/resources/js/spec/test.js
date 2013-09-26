@@ -23,6 +23,39 @@ describe("テスト前後をフックする関数、", function() {
 		// TODO
 	});
 });
+
+describe('jasmine、spy機能で、', function() {
+
+	var spyTarget = null;
+
+	beforeEach(function() {
+		spyTarget = {
+			value : 0,
+			setValue : function(value) {
+				spyTarget.value = value;
+			},
+			getValue : function() {
+				return spyTarget.value;
+			}
+		};
+	});
+	it('spyされたsetValueを実行し、toHaveBeenCalledWith()で呼び出しを確認する。', function() {
+		// TODO
+	});
+	it('spyされたsetValueを実行しても、オリジナルは呼び出されない事を確認。', function() {
+		// TODO
+	});
+	it('getValueをスパイし、andCallThrough()でオリジナルも呼び出す事を確認。', function() {
+		// TODO
+	});
+	it('getValueをスパイし、andCallFake()で関数を書き換える事を確認。', function() {
+		// TODO
+	});
+	it('JavaScriptの時計をスパイしsetIntervalを確認する。', function() {
+		// TODO
+	});
+});
+
 // ここではsample.controllerを利用する
 describe('jasmin-jqueryを使って、', function() {
 
@@ -42,7 +75,7 @@ describe('jasmin-jqueryを使って、', function() {
 		// TODO 【ハンズオン3 DOMテスト】
 	});
 	it('イベントを発火する。', function() {
-		// TODO 【ハンズオン3 スパイテスト】
+		// TODO 【ハンズオン3 DOMとスパイテスト】
 	});
 	// デバッグの練習用。このテストが失敗する利用をデバッガを利用して調べてみよう！
 	// もしわかったらどうすれば良いか考えてみよう。
