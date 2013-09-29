@@ -1,3 +1,4 @@
+karmaをインストールし実行する
 １．nodejsのインストール
 	http://nodejs.org/からダウンロード
 	Windowsはインストーラ(.msi)があるよ
@@ -22,20 +23,53 @@
 	> Chrome
 	>
 	
-	> resources/js/lib/**/*.js
-	> resources/js/src/*.js
-	> resources/js/spec/*.js
+	> src/main/webapp/resources/js/lib/**/*.js
+	> src/main/webapp/resources/js/src/*.js
+	> src/main/webapp/resources/js/spec/*.js
 	>
 	
-	> resources/js/lib/jasmine-1.3.1/*.js
+	> src/main/webapp/resources/js/lib/jasmine-1.3.1/*.js
 	
 	＞ yes
 	
-４．karma.conf.jsを変更
-	basePath: 'src/main/webapp'に変更
-	
-５．karma起動
+4．karma起動
 	コマンドプロンプトで以下を実行
 	set CHROME_BIN=C:\Program Files\Google\Chrome\Application\chrome.exe
 	.\node_modules\.bin\karma start
 	
+Junit形式レポートを出力する
+公式サイトhttps://github.com/karma-runner/karma-junit-reporter
+１．プロジェクトルートで以下のコマンドを実行
+		npm install karma-junit-reporter --save-dev
+２．karma.conf.jsに以下の設定を追加
+		config.set({
+			...省略
+			reporters: ['progress', 'junit'],
+			
+			junitReporter:{
+				outputFile: 'target/junit/test-results.xml'
+			}
+			...省略
+		})
+		
+カバレッジを取る
+Webサイト https://github.com/karma-runner/karma-coverage
+１．プロジェクトルートで以下のコマンドを実行
+		npm install karma-coverage --save-dev
+２．karma.conf.jsに以下の設定を追加
+		config.set({
+			...省略
+			reporter : ['progress', 'coverage']
+			preprocessors: {
+				'src/main/webapp/resources/js/src/*.js': ['coverage']
+			},
+			coverageReporter: {
+				type : 'cobertura',
+				dir : 'target/coverage/'
+				file : 'coverage.xml'
+			}
+			...省略
+		});
+		※type は html、lcov、lcovonly、text、text-summary、coberturaから選択。
+			Jenkinsを利用する場合はcobertura
+
