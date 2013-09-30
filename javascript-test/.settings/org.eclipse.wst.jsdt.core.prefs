@@ -294,4 +294,4 @@ org.eclipse.wst.jsdt.core.formatter.tabulation.char=tab
 org.eclipse.wst.jsdt.core.formatter.tabulation.size=4
 org.eclipse.wst.jsdt.core.formatter.use_tabs_only_for_leading_indentations=false
 org.eclipse.wst.jsdt.core.formatter.wrap_before_binary_operator=true
-semanticValidation=enabled
+semanticValidation=disabled

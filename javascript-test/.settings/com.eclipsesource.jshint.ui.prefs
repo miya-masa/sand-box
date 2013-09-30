@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
-included=src/main/webapp/resources/editor//*.js
+excluded=*.min.js\:src/main/webapp/resources/js/lib/*
+included=src/main/webapp/resources//*.js
 projectSpecificOptions=true

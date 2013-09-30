@@ -1,8 +1,9 @@
-describe("Jasmineのassert機能の内,", function() {
+describe('Jasmineのassert機能の内,', function() {
 	// TODO 【ハンズオン1 Assert機能】
 });
 
-describe("テスト前後をフックする関数、", function() {
+describe('テスト前後をフックする関数、', function() {
+	'use strict';
 	// TODO 【ハンズオン2 beforeEachとafterEachの動作確認】
 	var foo = 0;
 	var bar = 0;
@@ -15,11 +16,11 @@ describe("テスト前後をフックする関数、", function() {
 		// TODO
 	});
 
-	it("beforeEach()は各テストの前に実行する。", function() {
+	it('beforeEach()は各テストの前に実行する。', function() {
 		// TODO
 	});
 
-	it("afterEachは各テストの後に実行する。", function() {
+	it('afterEachは各テストの後に実行する。', function() {
 		// TODO
 	});
 });
@@ -65,7 +66,7 @@ describe('jasmine、spy機能で、', function() {
 
 // ここではsample.controllerを利用する
 describe('jasmin-jqueryを使って、', function() {
-
+	'use strict';
 	// 対象要素
 	var $target = null;
 
