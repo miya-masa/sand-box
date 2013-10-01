@@ -25,7 +25,7 @@ describe('テスト前後をフックする関数、', function() {
 	});
 });
 
-describe('jasmine、spy機能で、', function() {
+describe('jasmine、spy機能は、', function() {
 
 	/**
 	 * @type SpyTarget
@@ -50,13 +50,13 @@ describe('jasmine、spy機能で、', function() {
 	it('spyされたsetValueを実行し、toHaveBeenCalledWith()で呼び出しを確認する。', function() {
 		// TODO
 	});
-	it('spyされたsetValueを実行しても、オリジナルは呼び出されない事を確認。', function() {
+	it('spyされたsetValueを実行しても、オリジナルは呼び出されない事を確認する。', function() {
 		// TODO
 	});
-	it('getValueをスパイし、andCallThrough()でオリジナルも呼び出す事を確認。', function() {
+	it('getValueをスパイし、andCallThrough()でオリジナルも呼び出す事を確認確認する。', function() {
 		// TODO
 	});
-	it('getValueをスパイし、andCallFake()で関数を書き換える事を確認。', function() {
+	it('getValueをスパイし、andCallFake()で関数を書き換える事を確認する。', function() {
 		// TODO
 	});
 	it('JavaScriptの時計をスパイしsetIntervalを確認する。', function() {
